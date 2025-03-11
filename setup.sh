@@ -13,9 +13,13 @@ su - codespace <<'EOF'
 
 # install packages
 sudo apt update && sudo apt install -y \
-    tigervnc-standalone-server tigervnc-common websockify sddm xfce4 xfce4-goodies xorg xauth firefox x11-xserver-utils xfonts-base xfce4-session xfce4-terminal
+    tigervnc-standalone-server tigervnc-common websockify sddm xfce4 xfce4-goodies xorg xauth firefox flatpak gnome-software-plugin-flatpak x11-xserver-utils xfonts-base xfce4-session xfce4-terminal
 
 sudo apt clean
+
+# set up flathub
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/codespace/.local/share/flatpak/exports/share
 
 # create vnc directory
 mkdir -p ~/.vnc
