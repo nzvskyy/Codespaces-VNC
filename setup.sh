@@ -13,11 +13,8 @@ usermod -aG sudo codespace
 su - codespace <<'EOF'
 
 # install packages
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
-
 sudo apt update && sudo apt install -y \
-    tigervnc-standalone-server tigervnc-common websockify sddm xfce4 xfce4-goodies xorg xauth firefox google-chrome-stable x11-xserver-utils xfonts-base xfce4-session xfce4-terminal
+    tigervnc-standalone-server tigervnc-common websockify sddm xfce4 xfce4-goodies xorg xauth firefox x11-xserver-utils xfonts-base xfce4-session xfce4-terminal
 
 sudo apt clean
 
