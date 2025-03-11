@@ -29,13 +29,10 @@ touch ~/.Xauthority
 xauth generate :1 . trusted
 xauth add ${DISPLAY} . $(mcookie)
 
-# run vnc server
-vncserver -kill :1 2>/dev/null
-vncserver :1 -xstartup /usr/bin/startxfce4 -geometry 1280x720 -depth 16 -SecurityTypes None
-
-# download + run noVNC
+# download noVNC
 git clone https://github.com/novnc/noVNC/ /opt/noVNC
-cd /opt/noVNC
-./utils/novnc_proxy --vnc localhost:5901 --listen 6080
+
+chmod +x reboot.sh
+sudo ./reboot.sh
 
 EOF

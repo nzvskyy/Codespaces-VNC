@@ -7,10 +7,8 @@ fi
 
 su - codespace <<'EOF'
 
-# stop existing vnc
-vncserver -kill :1 2>/dev/null
-
 # restart vnc
+vncserver -kill :1 2>/dev/null
 vncserver :1 -xstartup /usr/bin/startxfce4 -geometry 1280x720 -depth 16 -SecurityTypes None
 
 # kill websockify
