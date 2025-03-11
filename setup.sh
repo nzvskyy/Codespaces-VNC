@@ -6,7 +6,6 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 # create new user with sudo access
-useradd -m -s /bin/bash codespace
 passwd codespace
 usermod -aG sudo codespace
 
